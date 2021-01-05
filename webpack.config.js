@@ -19,7 +19,7 @@ module.exports = {
     path: path.join(__dirname, 'dist/assets/'),
     publicPath: 'assets/',
     pathinfo: DEVELOPER_MODE,
-    filename: `[name]${ PRODUCTION_MODE ? '.[chunkhash]' : '' }.js`
+    filename: `[name]${PRODUCTION_MODE ? '.[chunkhash]' : ''}.js`
   },
   module: {
     rules: [
@@ -61,7 +61,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.PTTCHROME_PAGE_TITLE': JSON.stringify(process.env.PTTCHROME_PAGE_TITLE || 'PttChrome'),
-      'process.env.DEFAULT_SITE': JSON.stringify(PRODUCTION_MODE ? 'wsstelnet://ws.ptt.cc/bbs' : 'wstelnet://localhost:8080/bbs'),
+      'process.env.DEFAULT_SITE': JSON.stringify(PRODUCTION_MODE ? 'wstelnet://yklm.schl.tw' : 'wstelnet://yklm.schl.tw'),
       'process.env.ALLOW_SITE_IN_QUERY': JSON.stringify(process.env.ALLOW_SITE_IN_QUERY === 'yes'),
       'process.env.DEVELOPER_MODE': JSON.stringify(DEVELOPER_MODE),
     }),
@@ -118,20 +118,20 @@ module.exports = {
       parallel: true
     }),
   ] : [
-    new HtmlWebpackHarddiskPlugin()
-  ]),
+      new HtmlWebpackHarddiskPlugin()
+    ]),
   devServer: {
     contentBase: path.join(__dirname, './dist'),
     proxy: {
       '/bbs': {
-        target: 'https://ws.ptt.cc',
-        secure: true,
+        target: 'http://yklm.schl.tw',
+        secure: false,
         ws: true,
         changeOrigin: true,
-        onProxyReqWs(proxyReq) {
-          // Whitelist does not accept ws.ptt.cc
-          proxyReq.setHeader('origin', 'https://term.ptt.cc');
-        }
+        // onProxyReqWs (proxyReq) {
+        //   // Whitelist does not accept ws.ptt.cc
+        //   proxyReq.setHeader('origin', 'https://term.ptt.cc');
+        // }
       }
     }
   }
