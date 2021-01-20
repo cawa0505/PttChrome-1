@@ -34,7 +34,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(bin|bmp|png|woff)$/,
+        test: /\.(bin|svg|bmp|png|woff)$/,
         oneOf: [
           {
             resourceQuery: /inline/,
@@ -63,7 +63,7 @@ module.exports = {
     new Dotenv(),
     new webpack.DefinePlugin({
       'process.env.PTTCHROME_PAGE_TITLE': JSON.stringify(process.env.PTTCHROME_PAGE_TITLE || 'PttChrome'),
-      'process.env.DEFAULT_SITE': JSON.stringify(PRODUCTION_MODE ? 'wstelnet://yklm.schl.tw' : 'wstelnet://yklm.schl.tw'),
+      'process.env.DEFAULT_SITE': JSON.stringify(PRODUCTION_MODE ? 'wsstelnet://yklm.schl.tw/bbs' : 'wstelnet://localhost:8080/bbs'),
       'process.env.ALLOW_SITE_IN_QUERY': JSON.stringify(process.env.ALLOW_SITE_IN_QUERY === 'yes'),
       'process.env.DEVELOPER_MODE': JSON.stringify(DEVELOPER_MODE),
     }),
@@ -126,7 +126,7 @@ module.exports = {
     contentBase: path.join(__dirname, './dist'),
     proxy: {
       '/bbs': {
-        target: 'http://yklm.schl.tw',
+        target: 'https://yklm.schl.tw',
         secure: false,
         ws: true,
         changeOrigin: true,
