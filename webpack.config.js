@@ -126,7 +126,7 @@ module.exports = {
     contentBase: path.join(__dirname, './dist'),
     proxy: {
       '/bbs': {
-        target: 'https://ws.ptt.cc',
+        target: 'https://yklm.schl.tw',
         secure: false,
         ws: true,
         changeOrigin: true,
