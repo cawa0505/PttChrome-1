@@ -3,6 +3,11 @@
   src: url('../fonts/symmingliu.woff') format("woff");
 }
 
+@font-face {
+  font-family: DFHeiLight;
+  src: url('../fonts/DFHeiLightB5.woff') format("woff");
+}
+
 #picPreview {
   position: absolute;
   display: none;
@@ -29,7 +34,6 @@
 .menuHidden:hover {
   left: 0px;
 }
-
 
 #logo {
   width: 85px;
@@ -182,7 +186,6 @@ img {
 
 body {
   color: white;
-  //background-color: #101010;
   background-color: black;
   margin: 0px;
   overflow:hidden;
