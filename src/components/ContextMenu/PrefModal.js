@@ -42,7 +42,7 @@ const DEFAULT_PREFS = {
 
   // displays
   fontFitWindowWidth: false,
-  fontFace: "MingLiu,SymMingLiu,monospace",
+  fontFace: "DFHeiLight,MingLiu,SymMingLiu,monospace",
   fontSize: 20,
   termSize: { cols: 80, rows: 24 },
   termSizeMode: "fixed-term-size",

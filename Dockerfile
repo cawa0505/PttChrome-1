@@ -1,4 +1,5 @@
 FROM node:10-alpine as build
+LABEL maintainer="Jimmy Yen"
 
 WORKDIR /app
 
@@ -12,6 +13,7 @@ RUN yarn build
 
 
 FROM nginx
+LABEL maintainer="Jimmy Yen"
 
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
